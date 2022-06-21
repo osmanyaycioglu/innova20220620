@@ -11,6 +11,8 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.training.javaee.validation.StartWith;
+
 @XmlRootElement
 public class Person {
 
@@ -19,11 +21,13 @@ public class Person {
     @NotEmpty(message = "name null olamaz")
     @NotBlank
     @Size(min = 2, max = 15)
+    @StartWith("n:")
     private String  name;
     @QueryParam("sur")
     @NotEmpty(message = "surname null olamaz")
     @NotBlank
     @Size(min = 3, max = 18)
+    @StartWith("s:")
     private String  surname;
     @HeaderParam("height")
     @Max(300)
