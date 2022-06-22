@@ -2,32 +2,38 @@ package com.training.javaee.person.rest;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-import com.training.javaee.rest.models.Person;
+import com.training.javaee.person.services.PersonQueryService;
+import com.training.javaee.rest.mappers.PersonMapper;
+import com.training.javaee.rest.models.PersonRest;
 
 @Path("/api/v1/person/query")
 public class PersonQueryRest {
 
+    @EJB
+    private PersonQueryService queryService;
+
 
     @GET
     @Path("/get/one/{pid}")
-    public Person getOnePerson(@PathParam("pid") Long personId) {
-        return null;
+    public PersonRest getOnePerson(@PathParam("pid") final Long personId) {
+        return PersonMapper.toPersonRest(this.queryService.getOnePerson(personId));
     }
 
     @GET
     @Path("/get/all")
-    public List<Person> getAllPersons() {
-        return null;
+    public List<PersonRest> getAllPersons() {
+        return PersonMapper.toPersonRests(this.queryService.getAllPersons());
     }
 
     @GET
     @Path("/get/by/surname/{sur}")
-    public List<Person> getOnePerson(@PathParam("sur") String surname) {
-        return null;
+    public List<PersonRest> getPersonBySurname(@PathParam("sur") final String surname) {
+        return PersonMapper.toPersonRests(this.queryService.getPersonsBySurname(surname));
     }
 
 

@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.training.javaee.rest.models.Person;
+import com.training.javaee.rest.models.PersonRest;
 
 @Path("/greeting")
 @Produces(MediaType.TEXT_PLAIN)
@@ -74,7 +74,7 @@ public class Greetings {
     @Path("/say/hello5")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public String sayHello5(Person personParam) {
+    public String sayHello5(PersonRest personParam) {
         return "Hello " + personParam;
     }
 
@@ -82,7 +82,7 @@ public class Greetings {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Person sayHello6(Person personParam) {
+    public PersonRest sayHello6(PersonRest personParam) {
         personParam.setName("test");
         return personParam;
     }
@@ -97,7 +97,7 @@ public class Greetings {
                 MediaType.APPLICATION_JSON,
                 MediaType.APPLICATION_XML
     })
-    public Person sayHello7(Person personParam) {
+    public PersonRest sayHello7(PersonRest personParam) {
         personParam.setName("test");
         return personParam;
     }
@@ -119,7 +119,7 @@ public class Greetings {
     @Path("/say/hello10")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Person sayHello10(@BeanParam Person personParam) {
+    public PersonRest sayHello10(@BeanParam PersonRest personParam) {
         personParam.setName("test");
         return personParam;
     }
@@ -128,7 +128,7 @@ public class Greetings {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response sayHello11(Person personParam) {
+    public Response sayHello11(PersonRest personParam) {
         personParam.setName("test");
         return Response.status(Status.OK)
                        .header("test-header",
@@ -150,7 +150,7 @@ public class Greetings {
             case "activate":
                 try {
                     BufferedReader readerLoc = servletRequest.getReader();
-                    Person person;
+                    PersonRest person;
                     return Response.status(Status.OK)
                                    .header("test-header",
                                            "tes value")

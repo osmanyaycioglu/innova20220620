@@ -5,7 +5,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
-import com.training.javaee.rest.models.Person;
+import com.training.javaee.rest.models.PersonRest;
 
 @Path("/api/v1/person/management")
 public class PersonManagementRest {
@@ -13,7 +13,7 @@ public class PersonManagementRest {
     @POST
     @Path("/update")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String update(Person person) {
+    public String update(PersonRest person) {
         return "OK";
     }
 

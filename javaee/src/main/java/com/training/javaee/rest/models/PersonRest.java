@@ -14,9 +14,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.training.javaee.validation.StartWith;
 
 @XmlRootElement
-public class Person {
+public class PersonRest {
 
-    private Long    personId;
     @QueryParam("name")
     @NotEmpty(message = "name null olamaz")
     @NotBlank
@@ -44,56 +43,56 @@ public class Person {
     private String  password;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String nameParam) {
-        name = nameParam;
+    public void setName(final String nameParam) {
+        this.name = nameParam;
     }
 
     public String getSurname() {
-        return surname;
+        return this.surname;
     }
 
-    public void setSurname(String surnameParam) {
-        surname = surnameParam;
+    public void setSurname(final String surnameParam) {
+        this.surname = surnameParam;
     }
 
     public Integer getHeight() {
-        return height;
+        return this.height;
     }
 
-    public void setHeight(Integer heightParam) {
-        height = heightParam;
+    public void setHeight(final Integer heightParam) {
+        this.height = heightParam;
     }
 
     public Integer getWeight() {
-        return weight;
+        return this.weight;
     }
 
-    public void setWeight(Integer weightParam) {
-        weight = weightParam;
+    public void setWeight(final Integer weightParam) {
+        this.weight = weightParam;
     }
 
     @Override
     public String toString() {
-        return "Person [name=" + name + ", surname=" + surname + ", height=" + height + ", weight=" + weight + "]";
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long personIdParam) {
-        personId = personIdParam;
+        return "Person [name="
+               + this.name
+               + ", surname="
+               + this.surname
+               + ", height="
+               + this.height
+               + ", weight="
+               + this.weight
+               + "]";
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
-    public void setPassword(String passwordParam) {
-        password = passwordParam;
+    public void setPassword(final String passwordParam) {
+        this.password = passwordParam;
     }
 
 
