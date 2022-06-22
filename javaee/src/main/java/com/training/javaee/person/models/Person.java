@@ -1,16 +1,24 @@
 package com.training.javaee.person.models;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@XmlRootElement
+@Entity
+@Table(name = "kisi")
 public class Person {
 
+    @Id
+    @GeneratedValue
     private Long           personId;
     private String         name;
     private String         surname;
     private Integer        height;
     private Integer        weight;
     private String         password;
+    @Column(name = "astatus")
     private EAccountStatus accountStatus;
 
     public String getName() {

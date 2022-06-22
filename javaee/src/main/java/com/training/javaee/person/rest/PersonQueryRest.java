@@ -6,17 +6,19 @@ import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import com.training.javaee.person.services.PersonQueryService;
 import com.training.javaee.rest.mappers.PersonMapper;
 import com.training.javaee.rest.models.PersonRest;
 
 @Path("/api/v1/person/query")
+@Produces(MediaType.APPLICATION_JSON)
 public class PersonQueryRest {
 
     @EJB
     private PersonQueryService queryService;
-
 
     @GET
     @Path("/get/one/{pid}")
