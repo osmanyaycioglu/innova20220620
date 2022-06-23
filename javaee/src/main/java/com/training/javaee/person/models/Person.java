@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "kisi")
@@ -20,6 +21,10 @@ public class Person {
     private String         password;
     @Column(name = "astatus")
     private EAccountStatus accountStatus;
+
+    @Version
+    private Integer        dataVersion;
+
 
     public String getName() {
         return this.name;
@@ -88,6 +93,14 @@ public class Person {
 
     public void setAccountStatus(final EAccountStatus accountStatusParam) {
         this.accountStatus = accountStatusParam;
+    }
+
+    public Integer getDataVersion() {
+        return this.dataVersion;
+    }
+
+    public void setDataVersion(final Integer dataVersionParam) {
+        this.dataVersion = dataVersionParam;
     }
 
 
