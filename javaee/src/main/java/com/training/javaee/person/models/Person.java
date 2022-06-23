@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "kisi")
@@ -20,12 +23,15 @@ public class Person {
     @Id
     @GeneratedValue
     private Long           personId;
+    @Size(min = 2, max = 20)
     private String         name;
+    @Column(length = 50)
     private String         surname;
     private Integer        height;
     private Integer        weight;
     private String         password;
     @Column(name = "astatus")
+    @Enumerated(EnumType.STRING)
     private EAccountStatus accountStatus;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
