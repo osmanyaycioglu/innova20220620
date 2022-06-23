@@ -15,6 +15,8 @@ public class PersonMapper {
         personLoc.setPassword(personRest.getPassword());
         personLoc.setHeight(personRest.getHeight());
         personLoc.setWeight(personRest.getWeight());
+        personLoc.setAddress(personRest.getAddress());
+        personLoc.setPhones(personRest.getPhones());
         return personLoc;
     }
 
@@ -25,6 +27,8 @@ public class PersonMapper {
         personLoc.setPassword(person.getPassword());
         personLoc.setHeight(person.getHeight());
         personLoc.setWeight(person.getWeight());
+        personLoc.setAddress(person.getAddress());
+        personLoc.setPhones(person.getPhones());
         return personLoc;
     }
 

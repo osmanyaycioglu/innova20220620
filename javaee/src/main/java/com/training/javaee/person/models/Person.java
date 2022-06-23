@@ -1,9 +1,15 @@
 package com.training.javaee.person.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -21,6 +27,12 @@ public class Person {
     private String         password;
     @Column(name = "astatus")
     private EAccountStatus accountStatus;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Address        address;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Phone>    phones;
 
     @Version
     private Integer        dataVersion;
@@ -101,6 +113,22 @@ public class Person {
 
     public void setDataVersion(final Integer dataVersionParam) {
         this.dataVersion = dataVersionParam;
+    }
+
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(final Address addressParam) {
+        this.address = addressParam;
+    }
+
+    public List<Phone> getPhones() {
+        return this.phones;
+    }
+
+    public void setPhones(final List<Phone> phonesParam) {
+        this.phones = phonesParam;
     }
 
 
