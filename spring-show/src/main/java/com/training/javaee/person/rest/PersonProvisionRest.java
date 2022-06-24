@@ -14,6 +14,8 @@ import com.training.javaee.person.services.PersonProvisionService;
 import com.training.javaee.rest.mappers.PersonMapper;
 import com.training.javaee.rest.models.PersonRest;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/api/v1/person/provison")
 // @Path("/api/v1/person/provison")
@@ -22,10 +24,12 @@ public class PersonProvisionRest {
     @Autowired
     private PersonProvisionService provisionService;
 
+
     @PostMapping("activate")
     //    @POST
     //    @Path("activate")
     //    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(description = "activater long desceription", summary = "activate person")
     public String activate(@RequestBody @Valid final PersonRest personRest) {
         if (personRest.getName() == null) {
             throw new IllegalArgumentException("name null olmaz");

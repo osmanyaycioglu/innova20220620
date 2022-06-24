@@ -2,7 +2,6 @@ package com.training.javaee.person.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +9,7 @@ import com.training.javaee.person.data.PersonDao;
 import com.training.javaee.person.models.EAccountStatus;
 import com.training.javaee.person.models.Person;
 
-@Service
+// @Service
 //@Singleton
 //@LocalBean
 //@TransactionManagement(TransactionManagementType.BEAN)
