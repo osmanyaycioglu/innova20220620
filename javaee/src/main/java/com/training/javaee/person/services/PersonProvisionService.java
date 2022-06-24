@@ -25,6 +25,7 @@ public class PersonProvisionService {
     private XYZDao    xyzDao;
 
     @Transactional(value = TxType.REQUIRED)
+    // @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void activatePerson(final Person person) {
         person.setAccountStatus(EAccountStatus.ACTIVE);
         this.personDao.insert(person);
